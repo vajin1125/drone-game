@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.drone {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.drone-wrapper {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 80px;
+  border-radius: 30% 30% 70% 70%;
+  background-color: #555;
+}
+
+.lens {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 10px solid rgb(60,60,60);
+  border-radius: 50%;
+  background: rgb(34, 34, 34);
+}
+
+.lens::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border: 5px solid rgb(22, 22, 22);
+  border-radius: 50%;
+  background: rgb(131, 131, 131);
+}
+
+.propeller {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 8px;
+  background-color: #aaa;
+  border-radius: 5px;
+}
+
+.drone .landing-gear {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 10px;
+}
+
+.drone .landing-gear-arm {
+  position: absolute;
+  top: -10px;
+  width: 70px; 
+  height: 50px;  
+  border: solid 5px #555;
+  border-color: #555 transparent transparent transparent;
+  border-radius: 50%/50px 50px 0 0;
+}
+
+.drone .landing-gear-arm:first-child {
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.drone .landing-gear-arm:last-child {
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.fly-drone {
+  animation: tilt-shaking 1s infinite;
+}
+
+.fly {
+  animation: spin 1s infinite linear;
+}
+
+.propeller1 {
+  top: 27%;
+  left: 26%;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.propeller2 {
+  top: 27%;
+  left: 76%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.move-right {
+  transform: rotate(30deg);
+}
+
+.move-left {
+  transform: rotate(-30deg);
+}
+
+.shadow {
+  position: absolute;
+  z-index: -999;
+  top: 86%;
+  left: 25%;
+  height: 20px;
+  width: 100px;
+  border-radius: 50%;
+  background-image: radial-gradient(rgb(36, 36, 36), rgb(61, 61, 61), rgb(131, 131, 131));
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes tilt-shaking {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(5deg); }
+  50% { transform: translate(0, 0) rotate(0eg); }
+  75% { transform: translate(-5px, 5px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
